@@ -7,16 +7,17 @@ router.route("/auth/google")
             scope: ['profile', 'email']
         })
     );
-
 router.route("/auth/google/callback")
     .get(
-        passport.authenticate('google', {
-        })
+        passport.authenticate('google',{}),
+        (req,res) => {
+            res.redirect("http://localhost:3000/surveys");
+        }
     );
 router.route("/api/logout")
     .get((req, res) => {
         req.logout();
-        res.send(req.user);
+        res.redirect("/")
     });
 router.route("/api/current_user")
     .get((req, res) => {

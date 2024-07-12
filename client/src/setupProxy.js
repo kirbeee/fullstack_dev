@@ -1,10 +1,10 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
 module.exports = function (app) {
     app.use(
-        ["/surveys/*"],
+        ["/api", "/auth/google"],
         createProxyMiddleware({
-            target: "http://localhost:3000",
-            changeOrigin: true
+            target: "http://localhost:5000",
+            changeOrigin:true
         })
     );
 };

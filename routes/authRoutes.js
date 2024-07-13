@@ -9,9 +9,9 @@ router.route("/auth/google")
     );
 router.route("/auth/google/callback")
     .get(
-        passport.authenticate('google',{}),
+        passport.authenticate('google', { failureRedirect: "/" }),
         (req,res) => {
-            res.redirect("http://localhost:3000/surveys");
+            res.redirect("/surveys");
         }
     );
 router.route("/api/logout")

@@ -17,3 +17,4 @@ route.route("/api/surveys")
         });
 
     });
+module.exports = route;
